@@ -20,6 +20,8 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
 
+        
+
     }
 
     /**
@@ -31,6 +33,7 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         sum = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         number1 = new javax.swing.JTextField();
@@ -45,6 +48,14 @@ public class MainFrame extends javax.swing.JFrame {
         jpasswordLabel = new javax.swing.JLabel();
         loginButton = new javax.swing.JButton();
         passwordLabel = new javax.swing.JLabel();
+        ngheCheckBox = new javax.swing.JCheckBox();
+        xemCheckBox = new javax.swing.JCheckBox();
+        namRadioButton = new javax.swing.JRadioButton();
+        nuRadioButton = new javax.swing.JRadioButton();
+        provinceComboBox = new javax.swing.JComboBox<>();
+        provinceComboBox.addItem(new Country("VN", "Vietnam"));
+        provinceComboBox.addItem(new Country("sg", "Singapore"));
+        provinceComboBox.addItem(new Country("us", "America"));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,11 +101,34 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        passwordLabel.setText("Mat khau la");
+
+        ngheCheckBox.setText("Nghe nhac");
+        ngheCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ngheCheckBoxActionPerformed(evt);
+            }
+        });
+
+        xemCheckBox.setText("Xem phim");
+
+        buttonGroup1.add(namRadioButton);
+        namRadioButton.setText("Nam");
+
+        buttonGroup1.add(nuRadioButton);
+        nuRadioButton.setText("Nu");
+
+        provinceComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                provinceComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(92, 92, 92)
@@ -113,25 +147,37 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(resultLabel)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jpasswordLabel)
                                 .addGap(18, 18, 18)
                                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(resultLabel)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(loginButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(passwordLabel)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(72, 72, 72)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(loginButton)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(ngheCheckBox)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(xemCheckBox))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(namRadioButton)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(nuRadioButton))
+                                    .addComponent(provinceComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(counterButton)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(counterLabel)
-                            .addGap(60, 60, 60))))
-                .addContainerGap())
+                        .addComponent(counterButton)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(counterLabel)
+                        .addGap(60, 60, 60)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 953, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(353, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,11 +205,22 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpasswordLabel)
-                    .addComponent(passwordLabel))
+                    .addComponent(jpasswordLabel))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(xemCheckBox)
+                    .addComponent(ngheCheckBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(namRadioButton)
+                    .addComponent(nuRadioButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(provinceComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(loginButton)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
         );
 
         pack();
@@ -172,22 +229,57 @@ public class MainFrame extends javax.swing.JFrame {
     private void sumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumActionPerformed
         int x = Integer.parseInt(number1.getText());
         int y = Integer.parseInt(number2.getText());
-        
+
         int tong = x + y;
-        resultLabel.setText("Tong 2 so : "+tong);
+        resultLabel.setText("Tong 2 so : " + tong);
     }//GEN-LAST:event_sumActionPerformed
 
     private void counterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_counterButtonActionPerformed
         // TODO add your handling code here:
         int counter = inputTextArea.getText().length();
-        counterLabel.setText("so ky tu la: "+counter);
+        counterLabel.setText("so ky tu la: " + counter);
     }//GEN-LAST:event_counterButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
         String password = String.valueOf(passwordField.getPassword());
-        passwordLabel.setText("mat khau la: "+password);
+
+        String favorite = "";
+        if (xemCheckBox.isSelected()) {
+            favorite += "Xem phim";
+        }
+        if (ngheCheckBox.isSelected()) {
+            favorite += "\n nghe nhac";
+        }
+
+        String gender = "";
+        if (namRadioButton.isSelected()) {
+            gender += "Nam";
+        }
+
+        if (nuRadioButton.isSelected()) {
+            gender += "Nu";
+        }
+
+        Country province = (Country) provinceComboBox.getSelectedItem();
+
+        passwordLabel.setText("mat khau la: " + password + " \nSo thich la: " + favorite + "\n Gioi tinh " + gender + "\n Tinh thanh: " + province.getCode() + "- "+ province.getName());
     }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void ngheCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ngheCheckBoxActionPerformed
+        // TODO add your handling code here:
+
+        if (ngheCheckBox.isSelected()) {
+
+            passwordLabel.setText("So thich la: Nghe nhac");
+        } else {
+            passwordLabel.setText(null);
+        }
+    }//GEN-LAST:event_ngheCheckBoxActionPerformed
+
+    private void provinceComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_provinceComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_provinceComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,6 +317,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton counterButton;
     private javax.swing.JLabel counterLabel;
     private javax.swing.JTextArea inputTextArea;
@@ -233,11 +326,16 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jpasswordLabel;
     private javax.swing.JButton loginButton;
+    private javax.swing.JRadioButton namRadioButton;
+    private javax.swing.JCheckBox ngheCheckBox;
+    private javax.swing.JRadioButton nuRadioButton;
     private javax.swing.JTextField number1;
     private javax.swing.JTextField number2;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
+    private javax.swing.JComboBox<Country> provinceComboBox;
     private javax.swing.JLabel resultLabel;
     private javax.swing.JButton sum;
+    private javax.swing.JCheckBox xemCheckBox;
     // End of variables declaration//GEN-END:variables
 }
