@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * tao jframe bang cach tao class
  */
 package com.trungtamjava.javaswing;
 
@@ -17,6 +15,8 @@ public class HelloSwing {
         JFrame frame = new JFrame("HEllo");
         frame.setSize(400,400);
         frame.setVisible(true);
+        //dong cua so se dong chuong trinh
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
     public static void main(String[] args) {
